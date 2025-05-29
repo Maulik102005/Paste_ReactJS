@@ -1,11 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const Paste = () => {
-  return (
-    <div>
-      List of Pastes
-    </div>
-  )
-}
+  return <div>List of Pastes</div>;
+};
 
-export default Paste
+export default Paste;

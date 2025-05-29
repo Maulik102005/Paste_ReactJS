@@ -1,18 +1,17 @@
-import React from 'react'
-import { NavLink } from 'react-router-dom'
+import React from "react";
+import { NavLink } from "react-router-dom";
 
 const Navbar4 = () => {
   return (
-    <div className='flex flex-row gap-4 place-content-evenly'>
+    <div className="flex flex-row gap-7 place-content-evenly">
       <NavLink to="/">
-        Home
+        <h1 className="text-blue-500">Home</h1>
       </NavLink>
-      <NavLink 
-      to="/pastes">
-        Pastes
+      <NavLink to="/pastes">
+        <h1 className="text-blue-500">Pastes</h1>
       </NavLink>
     </div>
-  )
-}
+  );
+};
 
-export default Navbar4
+export default Navbar4;

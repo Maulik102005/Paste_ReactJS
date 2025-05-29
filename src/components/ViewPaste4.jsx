@@ -1,11 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const ViewPaste4 = () => {
-  return (
-    <div>
-      viewPaste
-    </div>
-  )
-}
+  return <div>viewPaste</div>;
+};
 
-export default ViewPaste4
+export default ViewPaste4;
