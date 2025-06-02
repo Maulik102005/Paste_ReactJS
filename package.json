@@ -1,8 +1,9 @@
-"homepage": "https://Maulik102005.github.io/tailwindcss4",
+
 {
   "name": "tailwindcss4",
   "private": true,
   "version": "0.0.0",
+  "homepage": "https://Maulik102005.github.io/tailwindcss4",
   "type": "module",
   "scripts": {
     "dev": "vite",
