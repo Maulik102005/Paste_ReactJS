@@ -12,6 +12,12 @@ export const pasteSlice = createSlice({
   initialState,
   reducers: {
     addToPastes: (state,action) => {
+
+    //    // Check if title is empty
+    // if (!paste.title || paste.title.trim() === "") {
+    //     toast.error("Please provide a title");
+    //     return; // Exit early, don't add to pastes
+    // }
       
       const paste =  action.payload;
       state.pastes.push(paste);

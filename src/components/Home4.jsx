@@ -31,16 +31,20 @@ const Home4 = () => {
       createdAt: new Date().toISOString(),
     };
 
-    if (pasteId) {
-      dispatch(updateToPastes(paste));
-    } else {
-      dispatch(addToPastes(paste));
-    }
+    if (title) {
+      if (pasteId) {
+        dispatch(updateToPastes(paste));
+      } else {
+        dispatch(addToPastes(paste));
+      }
 
-    //after create/update
-    setTitle("");
-    setValue("");
-    setSearchParams({});
+      //after create/update
+      setTitle("");
+      setValue("");
+      setSearchParams({});
+    } else {
+      alert("Please enter a title");
+    }
   }
 
   return (

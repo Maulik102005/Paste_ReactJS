@@ -40,46 +40,64 @@ const Paste = () => {
                 <div className="font-bold text-2xl">{paste.title}</div>
                 <div>{paste.content}</div>
               </div>
-              <div className="flex flex-row cursor-pointer mt-5 w-95 mr-3 justify-end">
-                <button className="border px-2 py-1 rounded h-10 w-10 transform transition-transform duration-300 hover:scale-105 shadow-md hover:shadow-lg">
-                  <a href={`/?pasteId=${paste?._id}`}>
-                    <img src="/images/edit_icon.webp" alt="Edit" />
-                  </a>
-                </button>
-                <button
-                  className="border px-2 py-1 rounded h-10 w-10 transform transition-transform duration-300 hover:scale-105 shadow-md hover:shadow-lg"
-                  onClick={() => {
-                    navigator.clipboard.writeText(paste?.content);
-                    toast.success("Copied to Clipboard");
-                  }}
-                >
-                  <img src="/images/copy.webp" alt="Copy" />
-                </button>
-                <button
-                  className="border px-2 py-1 rounded cursor-pointer h-10 w-10 transform transition-transform duration-300 hover:scale-105 shadow-md hover:shadow-lg"
-                  onClick={() => handleDelete(paste?._id)}
-                >
-                  <img src="/images/delete.webp" alt="Delete" />
-                </button>
-                <PDFDownloadLink
-                  document={<PastePDFDocument paste={paste} />}
-                  fileName={`${paste.title || "paste"}.pdf`}
-                >
-                  {({ loading }) =>
-                    loading ? (
-                      <button className="...">Loading PDF...</button>
-                    ) : (
-                      <button className="border px-2 py-1 rounded h-10 w-10 transform transition-transform duration-300 hover:scale-105 shadow-md hover:shadow-lg">
-                        <img src="/images/download.webp" alt="Download" />
-                      </button>
-                    )
-                  }
-                </PDFDownloadLink>
-                <button className="border px-2 py-1 rounded cursor-pointer h-10 w-10 transform transition-transform duration-300 hover:scale-105 shadow-md hover:shadow-lg">
-                  <a href={`/pastes/${paste?._id}`}>
-                    <img src="/images/view.webp" alt="View" />
-                  </a>
-                </button>
+
+              <div className="flex flex-col">
+                <div className="flex flex-row cursor-pointer mt-5 w-95 mr-3 justify-end">
+                  <button className="border px-2 py-1 rounded h-10 w-10 transform transition-transform duration-300 hover:scale-105 shadow-md hover:shadow-lg">
+                    <a href={`/?pasteId=${paste?._id}`}>
+                      <img src="/images/edit_icon.webp" alt="Edit" />
+                    </a>
+                  </button>
+                  <button
+                    className="border px-2 py-1 rounded h-10 w-10 transform transition-transform duration-300 hover:scale-105 shadow-md hover:shadow-lg"
+                    onClick={() => {
+                      navigator.clipboard.writeText(paste?.content);
+                      toast.success("Copied to Clipboard");
+                    }}
+                  >
+                    <img src="/images/copy.webp" alt="Copy" />
+                  </button>
+                  <button
+                    className="border px-2 py-1 rounded cursor-pointer h-10 w-10 transform transition-transform duration-300 hover:scale-105 shadow-md hover:shadow-lg"
+                    onClick={() => handleDelete(paste?._id)}
+                  >
+                    <img src="/images/delete.webp" alt="Delete" />
+                  </button>
+                  <PDFDownloadLink
+                    document={<PastePDFDocument paste={paste} />}
+                    fileName={`${paste.title || "paste"}.pdf`}
+                  >
+                    {({ loading }) =>
+                      loading ? (
+                        <button className="...">Loading PDF...</button>
+                      ) : (
+                        <button className="border px-2 py-1 rounded h-10 w-10 transform transition-transform duration-300 hover:scale-105 shadow-md hover:shadow-lg">
+                          <img src="/images/download.webp" alt="Download" />
+                        </button>
+                      )
+                    }
+                  </PDFDownloadLink>
+                  <button className="border px-2 py-1 rounded cursor-pointer h-10 w-10 transform transition-transform duration-300 hover:scale-105 shadow-md hover:shadow-lg">
+                    <a href={`/pastes/${paste?._id}`}>
+                      <img src="/images/view.webp" alt="View" />
+                    </a>
+                  </button>
+                </div>
+                <div className="self-end mr-[2%] mt-[6%] font-bold text-white text-xl tracking-tight">
+                  {new Date(paste.createdAt).toLocaleDateString("en-US", {
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                  })}
+                </div>
+
+                <div className="self-end mr-[2%] mt-[1%] text-white text-lg tracking-tight">
+                  {new Date(paste.createdAt).toLocaleTimeString("en-US", {
+                    hour: "numeric",
+                    minute: "2-digit",
+                    hour12: true,
+                  })}
+                </div>
               </div>
             </div>
           ))}
