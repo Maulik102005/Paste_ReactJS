@@ -43,7 +43,7 @@ const Paste = () => {
               <div className="flex flex-row cursor-pointer mt-5 w-95 mr-3 justify-end">
                 <button className="border px-2 py-1 rounded h-10 w-10 transform transition-transform duration-300 hover:scale-105 shadow-md hover:shadow-lg">
                   <a href={`/?pasteId=${paste?._id}`}>
-                    <img src="edit_icon.webp" alt="Edit" />
+                    <img src="/images/edit_icon.webp" alt="Edit" />
                   </a>
                 </button>
                 <button
@@ -53,13 +53,13 @@ const Paste = () => {
                     toast.success("Copied to Clipboard");
                   }}
                 >
-                  <img src="copy.webp" alt="Copy" />
+                  <img src="/images/copy.webp" alt="Copy" />
                 </button>
                 <button
                   className="border px-2 py-1 rounded cursor-pointer h-10 w-10 transform transition-transform duration-300 hover:scale-105 shadow-md hover:shadow-lg"
                   onClick={() => handleDelete(paste?._id)}
                 >
-                  <img src="delete.webp" alt="Delete" />
+                  <img src="/images/delete.webp" alt="Delete" />
                 </button>
                 <PDFDownloadLink
                   document={<PastePDFDocument paste={paste} />}
@@ -70,14 +70,14 @@ const Paste = () => {
                       <button className="...">Loading PDF...</button>
                     ) : (
                       <button className="border px-2 py-1 rounded h-10 w-10 transform transition-transform duration-300 hover:scale-105 shadow-md hover:shadow-lg">
-                        <img src="download.webp" alt="Download" />
+                        <img src="/images/download.webp" alt="Download" />
                       </button>
                     )
                   }
                 </PDFDownloadLink>
                 <button className="border px-2 py-1 rounded cursor-pointer h-10 w-10 transform transition-transform duration-300 hover:scale-105 shadow-md hover:shadow-lg">
                   <a href={`/pastes/${paste?._id}`}>
-                    <img src="view.webp" alt="View" />
+                    <img src="/images/view.webp" alt="View" />
                   </a>
                 </button>
               </div>
